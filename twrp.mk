@@ -1,14 +1,17 @@
 # TWRP configs
-#
+
 # Fstab
 TARGET_RECOVERY_FSTAB := device/samsung/twrp-common/twrp.fstab
-#
+
 # Theme
-ifneq ($(PRODUCT_DEVICE),nevisp) # mdpi
+ifneq ($(TARGET_DEVICE), nevisp)
 TW_THEME := portrait_mdpi
-else # ldpi -> corsica,ivory
+else
+ifneq ($(TARGET_DEVICE) ,corsica,ivoryss)
 TW_CUSTOM_THEME := device/samsung/twrp-common/twrp-themes/240x320/res
 endif
+endif
+
 HAVE_SELINUX := true
 TW_FLASH_FROM_STORAGE := true
 RECOVERY_SDCARD_ON_DATA := true
